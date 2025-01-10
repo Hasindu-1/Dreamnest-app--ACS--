@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import FavList from './Components/FavList';
+import Header from './Components/Header';
+import PropertyItem from './Components/PropertyItem';
+import SearchForm from './Components/SearchForm';
+import jsonData from "./data/properties.json";//Jason file data
+import 'bootstrap-icons/font/bootstrap-icons.css';//import bootstrap icons
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // State for managing favorite 
+    const [fav, setFav] = useState(() => {
+        const savedFavorites = localStorage.getItem('favorites');
+        return savedFavorites ? JSON.parse(savedFavorites) : [];
+    });
+
+    // Global state for serch value in header section Search bar
+    const [inValue, setInValue] = useState("");
+
+    // State for handle buttons in header section and Form 
+    const [searchInput, setSearchInput] = useState({});
+
+    return (
+        <div className="App">
+            
+            <Header inValue={inValue} setInValue={setInValue} setSearchInput={setSearchInput} />
+            <SearchForm setSearchInput={setSearchInput} />
+            <PropertyItem 
+                fav={fav} 
+                setFav={setFav} 
+                inValue={inValue} 
+                setInValue={setInValue}
+                jsonData={jsonData}
+                setSearchInput={searchInput}
+            />
+            <FavList fav={fav} setFav={setFav} />
+        </div>
+    );
 }
 
 export default App;

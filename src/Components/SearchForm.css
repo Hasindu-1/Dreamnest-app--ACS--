@@ -1,0 +1,228 @@
+/* Main Container Styles */
+.search-form-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  margin-top: 5px;
+  margin-left: 20px; 
+  margin-bottom: 5%;
+  overflow: hidden;
+  width: 100%;
+   
+}
+
+/* Toggle Button Styles */
+.show {
+  display: block;
+  margin-top: 7%;
+  margin-left: 30%;
+  margin-bottom: 2%; 
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.show:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Visibility States */
+.search-form-container.hidden {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0 auto;
+}
+
+.search-form-container.visible {
+  max-height: 2000px; /* Large enough to accommodate content */
+  opacity: 1;
+  visibility: visible;
+  width: 90%;
+  max-width: 800px;
+  margin-left: 0; /*start from the left for responsive purpose in Fav List */
+}
+
+/* Form Styles */
+.search-form {
+  padding: 30px;
+}
+
+/* Form Group Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+/* Label Styles */
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+/* Input Field Styles */
+.form-control {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: #f8f9fa;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  background-color: #ffffff;
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+}
+
+
+
+/* Date Picker Styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+/* Search Buttons Container */
+.search {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Search Buttons */
+.search button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search button:first-child {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.search button:last-child {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.search button:hover {
+  transform: translateY(-2px);
+}
+
+.search button:first-child:hover {
+  background-color: #0056b3;
+}
+
+.search button:last-child:hover {
+  background-color: #dee2e6;
+}
+
+/* Price and Bedroom Range Inputs */
+.form-group:has(input[type="number"]) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group:has(input[type="number"]) input {
+  width: 100%;
+}
+
+@media(max-width:1150px) {
+  .show{
+    color: #2c3e50;
+    margin-top: 10%;
+    margin-left: 20%;
+  }
+  .search-form-container.visible {
+    width: 80%;
+    margin-left: 15%;
+  }
+
+  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+  .show{
+    margin-top: 18%;
+  }
+  
+
+  .search-form {
+    padding: 20px;
+  }
+
+  .form-group:has(input[type="number"]) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 410px) {
+  .show{
+    margin-top: 20%;
+
+  }
+  
+}
+
+/* Loading State Styles */
+.search button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error State Styles */
+.form-control.error {
+  border-color: #dc3545;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}

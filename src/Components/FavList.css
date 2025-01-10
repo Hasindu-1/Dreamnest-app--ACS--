@@ -1,0 +1,189 @@
+/* Favorites Sidebar Container */
+.favorites-container {
+  position: absolute;
+  right: 0;
+  top: 15%;
+  bottom: 0;
+  height: 150%; 
+  max-height: 100vh; /* Max height is set to 100% of the viewport height */
+  width: 300px;
+  background-color: #ffffff;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 3;
+  border: 2px solid #007bff; 
+  border-radius: 8px; 
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Header Styles */
+.favorites-container h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  text-align: center;
+}
+
+/* Empty State Message */
+.favorites-container p {
+  color: #6c757d;
+  text-align: center;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+/* List Container */
+.favorites-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Delete All Button */
+.favorites-container > ul > button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.favorites-container > ul > button:hover {
+  background-color: #c82333;
+}
+
+/* List Item Styles */
+.favorites-container li {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: move;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.favorites-container li:hover {
+  transform: translateX(-5px);
+  border-color: #007bff;
+}
+
+/* Drag State */
+.favorites-container li:active {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+
+/* Property Image */
+.favorites-container li img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* Property Info Text */
+.favorites-container li {
+  font-size: 0.9rem;
+  color: #495057;
+  line-height: 1.4;
+}
+
+/* Delete Button for Individual Items */
+.favorites-container li button {
+  padding: 6px 12px;
+  background-color: #f8d7da;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+}
+
+.favorites-container li button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Drag and Drop Visual Feedback */
+.favorites-container.drag-over {
+  background-color: #e3f2fd;
+}
+
+/* Scrollbar Styling */
+.favorites-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.favorites-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.favorites-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.favorites-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+
+
+
+
+@media (max-width :1150px) {
+  .favorites-container {
+    width: 80%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0; 
+  }
+
+  .favorites-container li:hover {
+    transform: none;
+  }
+
+  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .favorites-container {
+    width: 80%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    
+  }
+
+  .favorites-container li:hover {
+    transform: none;
+  }
+}
